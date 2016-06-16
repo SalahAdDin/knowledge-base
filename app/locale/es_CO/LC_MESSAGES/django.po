@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 21:05+0000\n"
+"POT-Creation-Date: 2016-06-16 15:43-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +17,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/templates/home.html:6
+#: app/forms.py:9 app/templates/_search_box.html:4
+msgid "Search"
+msgstr "Buscar"
+
+#: app/forms.py:13
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: app/forms.py:20
+msgid "This email is not allowed to login"
+msgstr "Este correo electrónico no tiene permitido iniciar sesión"
+
+#: app/templates/app/article_detail.html:7
+msgid "View more articles in"
+msgstr "Ver más articulos en"
+
+#: app/templates/app/article_detail.html:10
+msgid "Last updated"
+msgstr "Ultima actualización"
+
+#: app/templates/app/article_detail.html:13
+msgid "This is private article. Only authenticated users can see it."
+msgstr ""
+"Este es un artículo privado. Sólo los usuarios autenticados pueden verlo."
+
+#: app/templates/app/article_detail.html:22
+msgid "It worked for me"
+msgstr "Me sirvió"
+
+#: app/templates/app/article_detail.html:25
+msgid "It was not helpful"
+msgstr "No fue de utilidad"
+
+#: app/templates/app/article_search.html:4
+msgid "Search results"
+msgstr "Resultados de la búsqueda"
+
+#: app/templates/app/category_detail.html:4
+msgid "Category"
+msgstr "categoria"
+
+#: app/templates/app/category_detail.html:7 app/templates/home.html:4
+msgid "Home"
+msgstr "Inicio"
+
+#: app/templates/home.html:7 app/urls.py:18 app/urls.py:19
 msgid "Knowledge Base"
 msgstr "Base de conocimiento"
 
-#: app/urls.py:38
-msgid "search"
-msgstr "buscar"
+#: app/templates/home.html:23
+msgid "View All"
+msgstr "Ver todos"
 
-#: app/urls.py:24
-msgid "category"
-msgstr "categoria"
+#: app/templates/layout/base.html:17
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: app/templates/layout/base.html:17 app/templates/login.html:4
+#: app/templates/login.html:7 app/templates/login.html:14
+#: app/templates/login_email.html:2
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: app/templates/login.html:9
+msgid "Write your email address and we'll send you a link to log in"
+msgstr ""
+"Escribe tu dirección de correo electrónico y te enviaremos un enlace para "
+"iniciar sesión"
+
+#: app/templates/login_email.html:3
+msgid "Please use this following link to log into the site"
+msgstr "Por favor usa el siguiente enlace para iniciar sesión en el sitio"
+
+#: app/templates/login_email.html:4
+msgid "Click here to log in"
+msgstr "Has 'click' aquí para iniciar sesión"
+
+#: app/urls.py:28
+msgid "^search/$"
+msgstr "^buscar/$"
+
+#: app/urls.py:34
+msgid "^login/$"
+msgstr "^iniciar/$"
+
+#: app/urls.py:40
+msgid "^logout/$"
+msgstr "^terminar/$"
+
+#: app/urls.py:49
+msgid "^(?P<slug>[\\w\\-]+)/$"
+msgstr ""
+
+#: app/urls.py:55
+msgid "^(?P<category_slug>[\\w\\-]+)/(?P<slug>[\\w\\-]+)/$"
+msgstr ""
+
+#: app/views.py:185
+msgid "Link to login into the Knowledge Base"
+msgstr "Enlace para iniciar sesión dentro de la Base de Conocimiento"
