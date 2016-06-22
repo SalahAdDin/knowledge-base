@@ -36,7 +36,7 @@ class HomeView(ListView):
         else:
             queryset = Article.publics.all()
 
-        return queryset
+        return queryset.order_by('category')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -88,15 +88,14 @@ class SearchResultsListView(ListView):
     template_name = 'app/article_search.html'
 
     def get_queryset(self):
-        search_query = SearchQuery(self.request.GET.get('q', ''))
+        search_query = SearchQuery(
+            self.request.GET.get('q', ''),
+            config=settings.SEARCH_LANGS[settings.LANGUAGE_CODE],
+        )
 
         vector = SearchVector(
             'name',
-            weight='A',
-            config=settings.SEARCH_LANGS[settings.LANGUAGE_CODE],
-        ) + SearchVector(
             'content',
-            weight='B',
             config=settings.SEARCH_LANGS[settings.LANGUAGE_CODE],
         )
 
@@ -105,9 +104,7 @@ class SearchResultsListView(ListView):
         else:
             queryset = Article.publics.all()
 
-        return queryset.annotate(
-            rank=SearchRank(vector, search_query)
-        ).filter(rank__gte=0.3).order_by('-rank')[:20]
+        return queryset.annotate(search=vector,).filter(search=search_query)
 
     def get_context_data(self, **kwargs):
         context = super(SearchResultsListView, self).get_context_data(**kwargs)
